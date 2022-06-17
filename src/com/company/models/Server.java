@@ -48,4 +48,13 @@ public class Server
             exc.printStackTrace();
         }
     }
+
+
+    public static void main(String[] args) throws IOException {
+        // write your code here
+        ServerSocket serverSocket = new ServerSocket(1234);
+        Server server = new Server(serverSocket);
+        System.out.println("SERVER STARTED...>>>");
+        server.startServer();
+    }
 }

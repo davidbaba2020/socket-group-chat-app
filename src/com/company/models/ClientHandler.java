@@ -3,6 +3,7 @@ package com.company.models;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ClientHandler implements Runnable {
 
@@ -96,5 +97,17 @@ public class ClientHandler implements Runnable {
         {
             e.printStackTrace();
         }
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your user name: ");
+        String username = scanner.nextLine();
+        Socket socket = new Socket("localhost",1234);
+        Client client = new Client(socket, username);
+        client.listenForMessages();
+        client.sendMessage();
+
     }
 }
